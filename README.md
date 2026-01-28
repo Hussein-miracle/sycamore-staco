@@ -1,60 +1,96 @@
-# Nuxt Starter Template
+# Frontend Engineer Assessment – Nuxt 4
+## Overview
 
-[![Nuxt UI](https://img.shields.io/badge/Made%20with-Nuxt%20UI-00DC82?logo=nuxt&labelColor=020420)](https://ui.nuxt.com)
+This project was built as part of a frontend engineering assessment to demonstrate:
 
-Use this template to get started with [Nuxt UI](https://ui.nuxt.com) quickly.
+- UI nterpretation and interaction quality
 
-- [Live demo](https://starter-template.nuxt.dev/)
-- [Documentation](https://ui.nuxt.com/docs/getting-started/installation/nuxt)
+- Thoughtful frontend architecture
 
-<a href="https://starter-template.nuxt.dev/" target="_blank">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-    <img alt="Nuxt Starter Template" src="https://ui.nuxt.com/assets/templates/nuxt/starter-light.png">
-  </picture>
-</a>
+- Data fetching patterns and state handling
 
-> The starter template for Vue is on https://github.com/nuxt-ui-templates/starter-vue.
+- Performance awareness and pragmatic tradeoffs
 
-## Quick Start
+The solution prioritizes clarity, scalability, and intentional simplicity, given the time constraints of the assessment.
 
-```bash [Terminal]
-npm create nuxt@latest -- -t github:nuxt-ui-templates/starter
+## Tech Stack
+
+ - Nuxt 4
+ - Nuxt UI
+ - TailwindCSS
+ - motion-v (for minimal, intentional animations)
+  
+## Architecture & Design Philosophy
+
+The project is structured around domain-oriented modules rather than purely technical layers utilizing the C4 model [Learn more](https://c4model.com/).
+
+The guiding principle was:
+```
+“Simple by default, scalable by design.”
 ```
 
-## Deploy your own
+This allows the application to remain easy to reason about while still being adaptable if requirements grow.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-name=starter&repository-url=https%3A%2F%2Fgithub.com%2Fnuxt-ui-templates%2Fstarter&demo-image=https%3A%2F%2Fui.nuxt.com%2Fassets%2Ftemplates%2Fnuxt%2Fstarter-dark.png&demo-url=https%3A%2F%2Fstarter-template.nuxt.dev%2F&demo-title=Nuxt%20Starter%20Template&demo-description=A%20minimal%20template%20to%20get%20started%20with%20Nuxt%20UI.)
+### Key Decisions
 
-## Setup
+ - Domain modules encapsulate related UI, logic, and services
 
-Make sure to install the dependencies:
+ - Explicit imports over auto-import magic for clarity
 
-```bash
-pnpm install
+ - Minimal global state to reduce coupling and unnecessary re-renders
+
+- Animations used sparingly to enhance hierarchy and interaction, not decoration
+
+Folder Structure
+``` bash
+/app
+  /modules
+    /landing
+      components/
+  /components
+  /shared
+    types/
+    composables/
+    utils/
+  /layouts
+  /assets
+  /pages
+  /stores
+  /services
 ```
+## Why this structure?
 
-## Development Server
+ - Modules represent business domains (e.g. landing page, data demo)
 
-Start the development server on `http://localhost:3000`:
+ - Shared contains only truly reusable elements
 
-```bash
-pnpm dev
-```
+ - Encourages local reasoning and reduces cross-feature coupling
 
-## Production
+ - Makes scaling or extracting features easier without refactoring the entire app
 
-Build the application for production:
+## UI Interpretation Test
+### Approach
 
-```bash
-pnpm build
-```
+- Recreated the core sections of the finance landing page as instructed
 
-Locally preview production build:
+- Omitted blog, stats, and feature sections per requirements
 
-```bash
-pnpm preview
-```
+- Focused on:
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+  - Visual hierarchy
+
+  - Responsiveness
+
+  - Accessible markup
+
+  - Subtle interaction feedback
+
+### Animations
+
+Animations were intentionally limited to:
+
+- Section entrance transitions
+
+- Hover and focus interactions
+
+This approach avoids performance regressions and improves perceived quality without affecting Lighthouse scores.
