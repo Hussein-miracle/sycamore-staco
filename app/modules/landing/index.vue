@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-import { LandingHeroSection,LandingDisclaimerSection,LandingFooterSection} from "./components";
-
-
+import {
+  LandingHeroSection,
+  LandingDisclaimerSection,
+  LandingFooterSection,
+} from "./components";
 
 useHead({
   meta: [
     { name: "viewport", content: "width=device-width, initial-scale=1" },
     {
       name: "keywords",
-      content:
-        "Staco, Finance Landing page,Nuxt 4,Tailwindcss, Nuxt UI",
+      content: "Staco, Finance Landing page,Nuxt 4,Tailwindcss, Nuxt UI",
     },
   ],
   link: [{ rel: "icon", href: "/favicon.ico" }],
@@ -34,11 +35,11 @@ useSeoMeta({
 
 <template>
   <div class="w-full bg-white">
-    <LandingHeroSection />
-    <div class="mb-75 relative z-999">
-      <div class="w-full h-[50vh] block relative bg-neutral-100 z-50"/>
-      <LandingFooterSection/>
-      <LandingDisclaimerSection/>
+    <LandingHeroSection  />
+    <div class="mb-75 relative z-99">
+      <div class="w-full h-[50vh] block relative bg-neutral-100 z-50" />
+      <LandingFooterSection />
+      <LandingDisclaimerSection />
     </div>
   </div>
 </template>

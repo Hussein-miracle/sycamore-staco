@@ -1,7 +1,8 @@
 import LandingHeroSection from "./landing-hero-section.vue";
-import LandingDisclaimerSection from "./landing-disclaimer-section.vue";
-import LandingFooterSection from "./landing-footer-section.vue";
 
+const LandingDisclaimerSection = defineAsyncComponent(() => import("./landing-disclaimer-section.vue"))
+
+const LandingFooterSection = defineAsyncComponent(() => import("./landing-footer-section.vue"))
 // icons
 import LandingDoodleOne from "./icon/landing-doodle-one.vue";
 import LandingDoodleTwo from "./icon/landing-doodle-two.vue";

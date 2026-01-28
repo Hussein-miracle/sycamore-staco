@@ -22,7 +22,11 @@ The solution prioritizes clarity, scalability, and intentional simplicity, given
   
 ## Architecture & Design Philosophy
 
-The project is structured around domain-oriented modules rather than purely technical layers utilizing the C4 model [Learn more](https://c4model.com/).
+The project is structured around domain-oriented modules rather than purely technical layers utilizing the C4 model. 
+
+##### Resources:
+- [c4model.com](https://c4model.com/).
+- [Learn how to build frontend applications at scale](https://frontendatscale.com/courses/frontend-architecture/).
 
 The guiding principle was:
 ```

@@ -151,7 +151,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="w-full bg-background min-h-[80vh]">
+  <section class="w-full bg-background min-h-[80vh] z-100 relative">
     <header
       class="absolute w-full py-3.75 flex items-center justify-center z-1500! isolate"
       @mouseleave="() => {
@@ -159,7 +159,7 @@ onMounted(() => {
       }"
     >
       <nav
-        class="w-full lg:max-w-285 bg-header rounded-[40px] h-20 pt-2.5 px-3.75 pb-3.75 flex items-center justify-between z-500"
+        class="w-full lg:max-w-285 bg-header rounded-[40px] min-h-20 pt-2.5 px-3.75 pb-3.75 flex items-center justify-between z-500"
       >
         <div class="size-fit scale-[85%]">
           <img
@@ -174,7 +174,7 @@ onMounted(() => {
         </div>
 
         <div
-          class="relative flex items-center w-fit mx-auto h-full rounded-full p-0"
+          class="relative md:flex hidden items-center w-fit mx-auto h-full rounded-full p-0"
           ref="containerRef"
         >
           <ul class="relative flex items-center gap-3 z-20">
@@ -334,12 +334,12 @@ onMounted(() => {
       <LandingVectorSix class="absolute top-[18%] left-[25%]" />
 
       <section class="w-full relative pt-61.75 pb-53">
-        <LandingDoodleOne class="absolute right-[22.25%] z-35 -top-3" />
+        <LandingDoodleOne class="absolute right-[22.25%] z-35 -top-3 md:block hidden" />
         <LandingDoodleTwo
-          class="absolute right-[32%] z-25 top-[33%] -translate-x-1.75"
+          class="absolute right-[32%] z-25 top-[33%] -translate-x-1.75 md:block hidden"
         />
 
-        <main class="grid grid-cols-2 w-full gap-5">
+        <main class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 grid-rows-2 w-full gap-5">
           <div class="w-full">
             <h1 class="font-semibold text-white text-left mb-5.25 text-[60px]">
               Financial Security Made
@@ -376,7 +376,7 @@ onMounted(() => {
             class="w-full animate-[bounceInUp_0.7s_ease-out_0.3s_both] h-full z-30"
           >
             <div
-              class="relative z-1 flex items-center justify-end ml-auto w-full max-w-117.5 h-full"
+              class="relative z-1 flex items-center justify-end ml-auto w-full md:max-w-117.5 h-full"
             >
               <div class="rounded-[30px] relative overflow-hidden h-85">
                 <video
