@@ -21,12 +21,6 @@
       >
     </li>
     <li class="group">
-      <span
-        class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300 flex items-center gap-1"
-      >
-        <UIcon name="i-lucide-chevron-right" class="size-4 text-inherit" />
-      </span>
-
       <UPopover
         mode="hover"
         :open-delay="100"
@@ -36,14 +30,16 @@
         <div class="flex items-center gap-2">
           <span>Auth and Utility</span>
           <span
-            class="size-fit inline-flex items-center justify-center transition-all group-hover:rotate-45 delay-75 duration-300"
+            class="size-fit inline-flex items-center justify-center transition-all group-hover:rotate-90 delay-75 duration-300"
           >
-            <UIcon name="i-lucide-chevron-right" class="size-4 text-white" />
+            <UIcon name="i-lucide-chevron-right" class="size-4 text-[#444]" />
           </span>
         </div>
 
         <template #content>
-          <ul class="bg-white w-fit px-4 py-2 absolute left-full flex flex-col gap-3 rounded-xl">
+          <ul
+            class="bg-white px-6 py-3 absolute top-1/2 left-[400%] flex flex-col gap-4 rounded-xl"
+          >
             <li class="group">
               <span
                 class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
@@ -52,25 +48,43 @@
             </li>
             <li class="group">
               <span
-                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300 whitespace-nowrap"
                 >Sign Up</span
               >
             </li>
             <li class="group">
               <span
-                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300 whitespace-nowrap"
                 >Reset Password</span
               >
             </li>
             <li class="group">
               <span
-                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+                class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300 whitespace-nowrap"
                 >Terms and Policy</span
               >
             </li>
           </ul>
         </template>
       </UPopover>
+    </li>
+    <li class="group">
+      <span
+        class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+        >Latest and Blog</span
+      >
+    </li>
+    <li class="group">
+      <span
+        class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+        >Blog Details</span
+      >
+    </li>
+    <li class="group">
+      <span
+        class="text-[#444] group-hover:text-[#444]/[0.698] transition ease-in-out duration-300"
+        >Contact&nbsp;Us</span
+      >
     </li>
   </ul>
 </template>
