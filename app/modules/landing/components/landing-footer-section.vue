@@ -4,7 +4,7 @@
       <!-- <div class="size-full absolute bg-background"/> -->
       <div class="footer-top z-10">
         <div class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto">
-          <div class="flex flex-col lg:flex-row items-center gap-10 justify-between">
+          <div class="flex flex-col lg:flex-row items-start gap-10 justify-between">
             <div class="flex-[0.45]">
               <div class="footer-card">
                 <div class="footer-info">
