@@ -30,11 +30,11 @@
               </div>
             </div>
             <div class="flex-1">
-              <div class="flex justify-between">
+              <div class="flex justify-between items-start flex-wrap gap-3">
                 <div class="md:w-1/2 md:flex-[0_0_auto] lg:w-1/4 lg:flex-[0_0_auto]  px-3.75">
                   <aside class="footer-widget">
                     <div class="mb-6.25 font-extrabold text-white">
-                      <h6>Products 🔥</h6>
+                      <h6 class=" whitespace-nowrap">Products 🔥</h6>
                     </div>
                     <div class="widget-body">
                       <ul class=" text-[#ffffffb2] flex flex-col gap-3">
@@ -50,7 +50,7 @@
                 <div class="md:w-1/2 md:flex-[0_0_auto] lg:w-1/4 lg:flex-[0_0_auto]  px-3.75">
                   <aside class="footer-widget">
                     <div class="mb-6.25 font-extrabold text-white">
-                      <h6>Why choose 🌟</h6>
+                      <h6  class=" whitespace-nowrap">Why choose 🌟</h6>
                     </div>
                     <div class="widget-body">
                       <ul class=" text-[#ffffffb2] flex flex-col gap-3">
@@ -63,8 +63,8 @@
                 </div>
                 <div class="md:w-1/2 md:flex-[0_0_auto] lg:w-1/4 lg:flex-[0_0_auto]  px-3.75">
                   <aside class="footer-widget">
-                    <div class="mb-[25px] font-extrabold text-white">
-                      <h6>Resources ❇️</h6>
+                    <div class="mb-6.25 font-extrabold text-white">
+                      <h6  class=" whitespace-nowrap">Resources ❇️</h6>
                     </div>
                     <div class="widget-body">
                       <ul class=" text-[#ffffffb2] flex flex-col gap-3">
@@ -80,8 +80,8 @@
                   class="md:w-1/2 md:flex-[0_0_auto] lg:w-1/4 lg:flex-[0_0_auto] px-3.75"
                 >
                   <aside class="footer-widget">
-                    <div class="mb-[25px] font-extrabold text-white">
-                      <h6>Company 💎</h6>
+                    <div class="mb-6.25 font-extrabold text-white">
+                      <h6  class=" whitespace-nowrap">Company 💎</h6>
                     </div>
                     <div class="widget-body">
                       <ul class=" text-[#ffffffb2] flex flex-col gap-3">
@@ -102,7 +102,7 @@
         class="w-full py-7.5 border-t border-t-[#d9d9d91a] flex items-center justify-between text-[#ffffffb2] z-10"
       >
         <div
-          class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto flex items-center justify-between"
+          class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto flex items-center justify-between flex-wrap gap-3"
         >
           <div class="">
             <p>
