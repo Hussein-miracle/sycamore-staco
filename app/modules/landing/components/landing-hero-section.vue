@@ -52,8 +52,12 @@ const focusRef = ref<HTMLElement | null>(null);
 const hoverFocusRef = ref<HTMLElement | null>(null);
 const containerRef = ref<HTMLElement | null>(null);
 const videoRef = ref<HTMLVideoElement | null>(null);
-const isPlaying = ref(true);
+const isLoaded = ref(false)
+const isPlaying = ref(false)
 
+const handleCanPlay = () => {
+  isLoaded.value = true
+}
 const togglePlay = () => {
   const video = videoRef.value;
   if (!video) return;
@@ -333,7 +337,7 @@ onMounted(() => {
       <LandingVectorFive class="absolute bottom-[13%] left-[25%]" />
       <LandingVectorSix class="absolute top-[18%] left-[25%]" />
 
-      <section class="w-full relative pt-61.75 pb-53">
+      <section class="w-full relative pt-40 md:pt-61.75 pb-35 md:pb-53">
         <LandingDoodleOne class="absolute right-[22.25%] z-35 -top-3 md:block hidden" />
         <LandingDoodleTwo
           class="absolute right-[32%] z-25 top-[33%] -translate-x-1.75 md:block hidden"
@@ -388,6 +392,7 @@ onMounted(() => {
                   preload="auto"
                   ref="videoRef"
                   muted="true"
+                  @canplay="handleCanPlay"
                 >
                   <source
                     src="https://staco-react.vercel.app/assets/h6-video-DaLtBHE1.mp4"
@@ -398,7 +403,7 @@ onMounted(() => {
 
                 <button
                   id="staco-h6-video-control"
-                  v-show="!!videoRef"
+                 v-show="isLoaded"
                   @click="togglePlay"
                   class="absolute size-12.5 right-7.5 bottom-7.5 rounded-[50%] flex items-center justify-center bg-white text-olive-active border-none outline-none focus:outline-0 cursor-pointer"
                 >
