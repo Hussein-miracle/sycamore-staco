@@ -16,7 +16,6 @@ import {
 } from ".";
 import NavSlideWrapper from "./nav-slide-wrapper.vue";
 
-
 const { $cn: cn } = useNuxtApp();
 
 const navigations: Array<NavigationItem> = [
@@ -52,12 +51,13 @@ const focusRef = ref<HTMLElement | null>(null);
 const hoverFocusRef = ref<HTMLElement | null>(null);
 const containerRef = ref<HTMLElement | null>(null);
 const videoRef = ref<HTMLVideoElement | null>(null);
-const isLoaded = ref(false)
-const isPlaying = ref(false)
+const isLoaded = ref(false);
+const isPlaying = ref(false);
+let closeTimeout: ReturnType<typeof setTimeout> | null = null;
 
 const handleCanPlay = () => {
-  isLoaded.value = true
-}
+  isLoaded.value = true;
+};
 const togglePlay = () => {
   const video = videoRef.value;
   if (!video) return;
@@ -70,7 +70,16 @@ const togglePlay = () => {
     isPlaying.value = false;
   }
 };
+const handleMouseLeave = () => {
+  // Wait 100ms-200ms before closing
+  closeTimeout = setTimeout(() => {
+    isBeingHovered.value = null;
+  }, 150);
+};
 
+const cancelClose = () => {
+  if (closeTimeout) clearTimeout(closeTimeout);
+};
 const initVideoPlay = () => {
   const video = videoRef.value;
   if (!video) return;
@@ -121,6 +130,7 @@ const updateHoverIndicator = () => {
 };
 
 const handleMouseEnter = (e: MouseEvent, idx: number) => {
+  if (closeTimeout) clearTimeout(closeTimeout);
   const nav = navigations[idx];
   if (nav) {
     currentHoverNav.value = nav.name;
@@ -158,9 +168,11 @@ onMounted(() => {
   <section class="w-full bg-background min-h-[80vh] z-100 relative">
     <header
       class="absolute w-full py-3.75 flex items-center justify-center z-1500! isolate"
-      @mouseleave="() => {
-        // isBeingHovered = null
-      }"
+      @mouseleave="
+        () => {
+          // isBeingHovered = null
+        }
+      "
     >
       <nav
         class="w-full lg:max-w-285 bg-header rounded-[40px] min-h-20 pt-2.5 px-3.75 pb-3.75 flex items-center justify-between z-500"
@@ -172,7 +184,6 @@ onMounted(() => {
             src="/images/staco-logo.svg"
             loading="eager"
             fetchpriority="high"
-          
             alt="Staco"
           />
         </div>
@@ -188,7 +199,7 @@ onMounted(() => {
                 :data-tab="nav.name"
                 @click="currentNav = nav.name"
                 @mouseenter="handleMouseEnter($event, idx)"
-                @mouseleave="currentHoverNav = null"
+                @mouseleave="handleMouseLeave"
               >
                 <span
                   :class="
@@ -217,21 +228,28 @@ onMounted(() => {
           ></div>
 
           <div
-            class="absolute bg-linear-to-b from-white/10 to-white/5 rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.2)] backdrop-blur-sm transition-[clip-path] duration-300 z-0 ease-in-out [clip-path:inset(0%_0%_0%_0%)] h-[80%] -mt-px w-[98%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 "
+            class="absolute bg-linear-to-b from-white/10 to-white/5 rounded-full shadow-[inset_0_1px_2px_rgba(255,255,255,0.2)] backdrop-blur-sm transition-[clip-path] duration-300 z-0 ease-in-out [clip-path:inset(0%_0%_0%_0%)] h-[80%] -mt-px w-[98%] left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2"
             ref="hoverFocusRef"
           ></div>
 
           <!-- popover -->
 
           <main
-            :class="cn('absolute top-10 z-10 pt-6 -ml-16 w-150  duration-300',
+            :class="
+              cn(
+                'absolute top-10 z-10 pt-6 -ml-16 w-150  duration-300',
 
-              isBeingHovered !== null ? 'transition-all' : 'opacity-0     pointer-events-none'
-            )"
+                isBeingHovered !== null
+                  ? 'transition-all'
+                  : 'opacity-0     pointer-events-none',
+              )
+            "
             :style="{
               left: popoverLeft ? `${popoverLeft}px` : `0px`,
               height: popoverHeight ? `${popoverHeight}px` : `0px`,
             }"
+            @mouseenter="cancelClose"
+            @mouseleave="handleMouseLeave"
           >
             <NavSlideWrapper
               :index="0"
@@ -254,7 +272,8 @@ onMounted(() => {
               :name="navigations[1]!.name"
             >
               <MegaMenuTwo
-                :ref="(el) => {
+                :ref="
+                  (el) => {
                     navItemRefs[1] = el as HTMLElement;
                   }
                 "
@@ -338,12 +357,16 @@ onMounted(() => {
       <LandingVectorSix class="absolute top-[18%] left-[25%]" />
 
       <section class="w-full relative pt-40 md:pt-61.75 pb-35 md:pb-53">
-        <LandingDoodleOne class="absolute right-[22.25%] z-35 -top-3 md:block hidden" />
+        <LandingDoodleOne
+          class="absolute right-[22.25%] z-35 -top-3 md:block hidden"
+        />
         <LandingDoodleTwo
           class="absolute right-[32%] z-25 top-[33%] -translate-x-1.75 md:block hidden"
         />
 
-        <main class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 grid-rows-2 w-full gap-5">
+        <main
+          class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 grid-rows-2 w-full gap-5"
+        >
           <div class="w-full">
             <h1 class="font-semibold text-white text-left mb-5.25 text-[60px]">
               Financial Security Made
@@ -403,7 +426,7 @@ onMounted(() => {
 
                 <button
                   id="staco-h6-video-control"
-                 v-show="isLoaded"
+                  v-show="isLoaded"
                   @click="togglePlay"
                   class="absolute size-12.5 right-7.5 bottom-7.5 rounded-[50%] flex items-center justify-center bg-white text-olive-active border-none outline-none focus:outline-0 cursor-pointer"
                 >
