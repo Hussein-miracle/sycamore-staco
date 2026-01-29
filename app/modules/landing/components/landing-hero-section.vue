@@ -72,9 +72,11 @@ const togglePlay = () => {
 };
 const handleMouseLeave = () => {
   // Wait 100ms-200ms before closing
-  closeTimeout = setTimeout(() => {
-    isBeingHovered.value = null;
-  }, 150);
+  // closeTimeout = setTimeout(() => {
+  // }, 150);
+  currentHoverNav.value = null;
+  isBeingHovered.value = null;
+  updateHoverIndicator(); // Explicitly call reset
 };
 
 const cancelClose = () => {
@@ -110,6 +112,7 @@ const updateActiveIndicator = () => {
 const updateHoverIndicator = () => {
   const container = containerRef.value;
   const hoverFocusElement = hoverFocusRef.value;
+
   const hoverNav = container?.querySelector(
     `[data-tab="${currentHoverNav.value}"]`,
   ) as HTMLElement;
@@ -124,17 +127,17 @@ const updateHoverIndicator = () => {
     hoverFocusElement.style.opacity = "1";
     hoverFocusElement.style.clipPath = `inset(0% ${clipRight}% 0% ${clipLeft}% round 1000px)`;
   } else if (hoverFocusElement) {
+    // hoverFocusElement.style.opacity = `0`;
     hoverFocusElement.style.clipPath = `inset(0% 0% 0% 0% round 1000px)`;
-    // hoverFocusElement.style.opacity = `0`
   }
 };
 
 const handleMouseEnter = (e: MouseEvent, idx: number) => {
   if (closeTimeout) clearTimeout(closeTimeout);
   const nav = navigations[idx];
+  isBeingHovered.value = idx;
   if (nav) {
     currentHoverNav.value = nav.name;
-    isBeingHovered.value = idx;
   }
   const element = e.currentTarget as HTMLElement;
   const offsetLeft = element.offsetLeft;
@@ -149,17 +152,19 @@ const handleMouseEnter = (e: MouseEvent, idx: number) => {
   }
 };
 watch(currentNav, async () => {
-  await nextTick();
-  updateActiveIndicator();
+  nextTick(() => {
+    updateActiveIndicator();
+  });
 });
 watch(currentHoverNav, async () => {
-  await nextTick();
-  updateHoverIndicator();
+  nextTick(() => {
+    updateHoverIndicator();
+  });
 });
 
 onMounted(() => {
-  initVideoPlay();
   updateActiveIndicator();
+  initVideoPlay();
   updateHoverIndicator();
 });
 </script>
@@ -168,11 +173,7 @@ onMounted(() => {
   <section class="w-full bg-background min-h-[80vh] z-100 relative">
     <header
       class="absolute w-full py-3.75 flex items-center justify-center z-1500! isolate"
-      @mouseleave="
-        () => {
-          // isBeingHovered = null
-        }
-      "
+    @mouseleave="handleMouseLeave"
     >
       <nav
         class="w-full lg:max-w-285 bg-header rounded-[40px] min-h-20 pt-2.5 px-3.75 pb-3.75 flex items-center justify-between z-500"
