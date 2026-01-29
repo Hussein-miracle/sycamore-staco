@@ -71,12 +71,11 @@ const togglePlay = () => {
   }
 };
 const handleMouseLeave = () => {
-  // Wait 100ms-200ms before closing
-  // closeTimeout = setTimeout(() => {
-  // }, 150);
-  currentHoverNav.value = null;
-  isBeingHovered.value = null;
-  updateHoverIndicator(); // Explicitly call reset
+  closeTimeout = setTimeout(() => {
+    currentHoverNav.value = null;
+    isBeingHovered.value = null;
+    updateHoverIndicator();
+  }, 150);
 };
 
 const cancelClose = () => {
