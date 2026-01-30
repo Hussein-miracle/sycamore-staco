@@ -1,15 +1,15 @@
 <template>
-  <footer class="w-full px-5 z-800 relative">
+  <footer class="w-full lg:px-5 z-800 relative">
     <section class="bg-background w-full rounded-[30px] opacity-100 overflow-hidden relative">
       <!-- <div class="size-full absolute bg-background"/> -->
-      <div class="footer-top z-10">
+      <div class=" z-10 pt-10 lg:pt-30 px-0 pb-17.5">
         <div class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto">
           <div class="flex flex-col lg:flex-row items-start gap-10 justify-between">
-            <div class="flex-[0.45]">
-              <div class="footer-card">
+            <div class="lg:flex-[0.45]">
+              <div class="footer-card px-4 lg:px-0">
                 <div class="footer-info">
                   <a href="#" class="footer-logo">
-                    <div class="size-fit scale-[85%]">
+                    <div class="size-fit lg:scale-[85%] lg:mb-0 mb-3">
                       <img
                         width="200"
                         height="100"
@@ -29,7 +29,7 @@
                 </div>
               </div>
             </div>
-            <div class="flex-1">
+            <div class="lg:flex-1">
               <div class="flex justify-between items-start flex-wrap gap-3">
                 <div class="md:w-1/2 md:flex-[0_0_auto] lg:w-1/4 lg:flex-[0_0_auto]  px-3.75">
                   <aside class="footer-widget">
@@ -102,7 +102,7 @@
         class="w-full py-7.5 border-t border-t-[#d9d9d91a] flex items-center justify-between text-[#ffffffb2] z-10"
       >
         <div
-          class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto flex items-center justify-between flex-wrap gap-3"
+          class="w-full lg:max-w-285 md:max-w-180 sm:max-w-135 mx-auto flex items-center  justify-center lg:justify-between flex-wrap gap-3 lg:px-0 px-4"
         >
           <div class="">
             <p>
@@ -110,10 +110,10 @@
             </p>
           </div>
 
-          <ul class="flex items-center justify-end gap-7.5">
-            <li><NuxtLink href="#">Terms and conditions</NuxtLink></li>
-            <li><NuxtLink href="#">Cookies</NuxtLink></li>
-            <li><NuxtLink href="#">Privacy policy</NuxtLink></li>
+          <ul class="flex items-center justify-center lg:justify-end gap-4 lg:flex-row flex-col lg:gap-7.5 flex-wrap mx-auto">
+            <li><NuxtLink href="#" class=" whitespace-nowrap">Terms and conditions</NuxtLink></li>
+            <li><NuxtLink href="#" class=" whitespace-nowrap">Cookies</NuxtLink></li>
+            <li><NuxtLink href="#" class=" whitespace-nowrap">Privacy policy</NuxtLink></li>
           </ul>
         </div>
       </main>
@@ -122,9 +122,6 @@
 </template>
 
 <style lang="css" scoped>
-.footer-top {
-  padding: 120px 0px 70px;
-}
 .container,
 .container-fluid,
 .container-lg,
