@@ -171,13 +171,13 @@ onMounted(() => {
 <template>
   <section class="w-full bg-background min-h-[80vh] z-100 relative">
     <header
-      class="absolute w-full py-3.75 flex items-center justify-center z-1500! isolate"
+      class="absolute w-full py-3.75  lg:px-0 px-1 flex items-center justify-center z-1500! isolate"
     @mouseleave="handleMouseLeave"
     >
       <nav
-        class="w-full lg:max-w-285 bg-header rounded-[40px] min-h-20 pt-2.5 px-3.75 pb-3.75 flex items-center justify-between z-500"
+        class="w-full lg:max-w-285 bg-header rounded-[40px] min-h-20 pt-2 lg:pt-2.5 px-2  lg:px-3.75 pb-2.5 lg:pb-3.75 flex items-center justify-between z-500"
       >
-        <div class="size-fit scale-[85%]">
+        <div class="size-fit scale-[65%] lg:scale-[85%]">
           <img
             width="200"
             height="100"
@@ -282,12 +282,12 @@ onMounted(() => {
           </main>
         </div>
 
-        <div class="flex items-center gap-5">
+        <div class="flex items-center gap-2.5 lg:gap-5">
           <UPopover mode="hover" :open-delay="100" :close-delay="300">
             <UButton
               label="EN"
               icon="i-lucide-globe"
-              class="bg-transparent text-white rounded-3xl flex items-center py-3 px-3"
+              class="bg-transparent text-white rounded-3xl flex items-center py-2 px-2.5 lg:py-3 lg:px-3.5"
               color="neutral"
               variant="subtle"
             />
@@ -337,7 +337,7 @@ onMounted(() => {
               </ul>
             </template>
           </UPopover>
-          <NuxtLink href="#" class="group mx-0.5">
+          <NuxtLink href="#" class="group mx-0.5 lg:inline-block hidden">
             <span
               class="text-white group-hover:text-white/[0.698] transition ease-in-out duration-300"
               >Sign in</span
@@ -368,7 +368,7 @@ onMounted(() => {
           class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-1 grid-rows-2 w-full gap-5"
         >
           <div class="w-full">
-            <h1 class="font-semibold text-white text-left mb-5.25 text-[60px]">
+            <h1 class="font-semibold text-white text-left mb-5.25 text-5xl lg:text-[60px]">
               Financial Security Made
               <FlipWords :words="['Easier', 'Accountable', 'Unbeatable']" />
             </h1>
@@ -381,7 +381,7 @@ onMounted(() => {
               <PrimaryButton title="Get Start For Free" :variant="'inverted'" />
 
               <button
-                class="outline-0 focus:outline-0 border-0 flex items-center gap-2 group"
+                class="outline-0 focus:outline-0 border-0 flex items-center gap-2 group p-1"
               >
                 <span
                   class="text-base text-white transition-colors duration-300 group-hover:text-olive-active"

@@ -36,7 +36,7 @@ useSeoMeta({
 <template>
   <div class="w-full bg-white">
     <LandingHeroSection  />
-    <div class="mb-75 relative z-99">
+    <div class="mb-100 lg:mb-75 relative z-99">
       <div class="w-full h-[50vh] block relative bg-neutral-100 z-50" />
       <LandingFooterSection />
       <LandingDisclaimerSection />
