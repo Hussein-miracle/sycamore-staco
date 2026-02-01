@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+
+body{
+  background-color: #fff;
+}
+
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 
