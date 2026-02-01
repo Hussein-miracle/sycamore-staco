@@ -1,5 +1,5 @@
 <template>
-  <section class="fixed bottom-0 left-0 w-full z-0 lg:pt-13.25 px-2.5 pb-10" >
+  <section class="fixed bottom-0 left-0 w-full z-0 lg:pt-13.25 px-2.5 pb-10 overflow-hidden" >
     <div class=" lg:max-w-285 md:max-w-180 sm:max-w-135  mx-auto">
       <div class=" text-black-one">
         <h6 class=" text-black-one font-bold mb-2.75 leading-[1.46]">Disclaimer:</h6>
