@@ -249,10 +249,7 @@
   border-right: none;
 }
 
-.megaTablinks:hover a{
-  opacity: 0.8;
-  transition: ease-in-out 200ms;
-}
+
 
 .megaTablinks a {
   @apply whitespace-nowrap;
