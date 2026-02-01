@@ -137,7 +137,7 @@ const wordsSplit = computed(() => currentWord.value?.split?.(" "));
               duration: 0.3,
               ease: 'easeOut',
             }"
-            class="block origin-left bg-olive  h-2 lg:h-3.5 lg:-mt-3"
+            class="block origin-left bg-olive  h-2 lg:h-3.5 lg:mt-0"
           >
           </Motion>
         </Motion>

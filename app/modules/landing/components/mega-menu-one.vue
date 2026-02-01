@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="mega-menu"> -->
-  <div class="flex items-start bg-white rounded-xl w-fit">
+  <div class="flex items-start bg-white rounded-xl w-max">
     <div class="mega-menu-column">
       <ul class="flex flex-col gap-2">
         <li class="megaTablinks" data-menu="mainDemo">
@@ -247,6 +247,11 @@
 
 .mega-menu-column:last-of-type {
   border-right: none;
+}
+
+.megaTablinks:hover a{
+  opacity: 0.8;
+  transition: ease-in-out 200ms;
 }
 
 .megaTablinks a {

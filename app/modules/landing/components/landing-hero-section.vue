@@ -237,7 +237,7 @@ onMounted(() => {
           <main
             :class="
               cn(
-                'absolute top-10 z-10 pt-6 -ml-16 w-150  duration-300',
+                'absolute top-11.5 z-10 pt-6 -ml-16 w-150  duration-300',
 
                 isBeingHovered !== null
                   ? 'transition-all'
@@ -358,7 +358,7 @@ onMounted(() => {
 
       <section class="w-full relative pt-40 md:pt-61.75 pb-35 md:pb-53">
         <LandingDoodleOne
-          class="absolute right-[22.25%] z-35 -top-3 md:block hidden"
+          class="absolute right-[22.25%] z-35 -top-5 md:block hidden"
         />
         <LandingDoodleTwo
           class="absolute right-[32%] z-25 top-[33%] -translate-x-1.75 md:block hidden"
