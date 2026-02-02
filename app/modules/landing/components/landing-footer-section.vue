@@ -25,7 +25,7 @@
                   </p>
                 </div>
                 <div class="footer-follow">
-                  <ul class="social-link dark footer-one-social-link"></ul>
+                  <ul class="social-link footer-one-social-link"></ul>
                 </div>
               </div>
             </div>
